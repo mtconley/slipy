@@ -1,3 +1,5 @@
+import sys
+
 def _print_error(e):
     """Traceback formatter for handled exceptions
 
@@ -29,3 +31,12 @@ def _print_error(e):
     args = (error_str, fname, tb_lineno)
     sys.stderr.write(string.format(*args))
     sys.stderr.flush()
+
+class ContextError(Exception):
+    def __init__(self, message=None):
+        
+        err_str = 'Cannot create object within existing object context'
+        if message:
+            err_str = '{0}\n\n\t{1}'.format(err_str, message)
+            
+        Exception.__init__(self, err_str)

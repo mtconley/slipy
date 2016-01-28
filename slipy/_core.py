@@ -1,5 +1,9 @@
+import sys
 import matplotlib.pyplot as plt
+from IPython.display import HTML, display
 
+from _format import HTMLBuffer, HTMLWriter
+from _exceptions import ContextError, _print_error
 
 class Registery(type):
     _shared_state = {
@@ -203,6 +207,5 @@ class Slide(object):
             buf = HTMLBuffer()
         else:
             buf = buf
-        return buf   
-    
-        
+        return buf
+
