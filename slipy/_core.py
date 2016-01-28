@@ -185,7 +185,7 @@ class Slide(object):
     def _make_html(self):
         image = self._get_image()
         text = self._buf.getvalue()
-        html = HTMLWriter(image, text, self.layout)
+        html = HTMLWriter(image, text, self._layout)
         return html
 
     
